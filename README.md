@@ -5,6 +5,7 @@
 - Generic Constraint
 - Entity Framework
 - LINQ
-;
+
 > In Progress.
+
 Also, it includes SQL codes for tables.
