@@ -7,3 +7,4 @@
 - LINQ
 ;
 > In Progress.
+Also, it includes SQL codes for tables.
