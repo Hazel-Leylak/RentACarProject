@@ -5,6 +5,7 @@
 - Generic Constraint
 - Entity Framework
 - LINQ
+- Core Layer
 
 > In Progress.
 
