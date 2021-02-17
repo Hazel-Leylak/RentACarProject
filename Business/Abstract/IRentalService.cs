@@ -15,7 +15,7 @@ namespace Business.Abstract
         IDataResult<List<Rental>> GetByDateRange(DateTime from, DateTime to);
         IDataResult<List<Rental>> GetByCarId(int carId);
         IDataResult<Rental> GetById(int Id);
-        IDataResult<List<RentalDetailDto>> GetRentalDetails(int id);
+        IDataResult<List<RentalDetailDto>> GetRentalDetails();
         IResult Add(Rental rental);
         IResult Delete(Rental rental);
         IResult Update(Rental rental);

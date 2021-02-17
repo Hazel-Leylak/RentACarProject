@@ -11,19 +11,17 @@ namespace WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CarsController : ControllerBase
+    public class RentalsController : ControllerBase
     {
-        ICarService _carService;
-
-        public CarsController(ICarService carService)
+        IRentalService _rentalService;
+        public RentalsController(IRentalService rentalService)
         {
-            _carService = carService;
+            _rentalService = rentalService;
         }
-
-        [HttpGet("getall")]
-        public IActionResult GetAll()
+        [HttpGet("addrental")]
+        public IActionResult AddRental(Rental rental)
         {
-            var result = _carService.GetAll();
+            var result = _rentalService.Add(rental);
             if (result.Success)
             {
                 return Ok(result);
@@ -31,10 +29,10 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
-        [HttpGet("getcarsbybrandid")]
-        public IActionResult GetCarsByBrandId(int carId)
+        [HttpGet("deleterental")]
+        public IActionResult DeleteRental(Rental rental)
         {
-            var result = _carService.GetCarsByBrandId(carId);
+            var result = _rentalService.Delete(rental);
             if (result.Success)
             {
                 return Ok(result);
@@ -42,10 +40,10 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
-        [HttpGet("getcarsbycolorid")]
-        public IActionResult GetCarsByColorId(int colorId)
+        [HttpGet("getallrentals")]
+        public IActionResult GetAllRentals()
         {
-            var result = _carService.GetCarsByColorId(colorId);
+            var result = _rentalService.GetAll();
             if (result.Success)
             {
                 return Ok(result);
@@ -53,10 +51,10 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
-        [HttpGet("getbydailyprice")]
-        public IActionResult GetByDailyPrice(decimal min, decimal max)
+        [HttpGet("getrentalbycarid")]
+        public IActionResult GetRentalByCarId(int carId)
         {
-            var result = _carService.GetByDailyPrice(min,max);
+            var result = _rentalService.GetAll();
             if (result.Success)
             {
                 return Ok(result);
@@ -64,10 +62,10 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
-        [HttpGet("getbyid")]
-        public IActionResult GetById(int id)
+        [HttpGet("getrentalbydaterange")]
+        public IActionResult GetByRentalByDateRange(DateTime from, DateTime to)
         {
-            var result = _carService.GetById(id);
+            var result = _rentalService.GetByDateRange(from, to);
             if (result.Success)
             {
                 return Ok(result);
@@ -75,10 +73,10 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
-        [HttpPost("addcar")]
-        public IActionResult AddCar(Car car)
+        [HttpGet("getbyrentalid")]
+        public IActionResult GetByRentalId(int id)
         {
-            var result = _carService.Add(car);
+            var result = _rentalService.GetById(id);
             if (result.Success)
             {
                 return Ok(result);
@@ -86,10 +84,10 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
-        [HttpPost("deletecar")]
-        public IActionResult DeleteCar(Car car)
+        [HttpGet("getrentaldetails")]
+        public IActionResult GetRentalDetails()
         {
-            var result = _carService.Delete(car);
+            var result = _rentalService.GetRentalDetails();
             if (result.Success)
             {
                 return Ok(result);
@@ -97,10 +95,10 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
-        [HttpPost("updatecar")]
-        public IActionResult UpdateCar(Car car)
+        [HttpGet("updaterental")]
+        public IActionResult UpdateRental(Rental rental)
         {
-            var result = _carService.Update(car);
+            var result = _rentalService.Update(rental);
             if (result.Success)
             {
                 return Ok(result);
@@ -108,16 +106,15 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
-        [HttpPost("getcardetail")]
-        public IActionResult GetCarDetail()
+        [HttpGet("addreturndate")]
+        public IActionResult AddReturnDate(int rentalId)
         {
-            var result = _carService.GetCarDetails();
+            var result = _rentalService.AddReturnDate(rentalId);
             if (result.Success)
             {
                 return Ok(result);
             }
             return BadRequest(result);
         }
-
     }
 }
