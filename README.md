@@ -6,6 +6,11 @@
 - Entity Framework
 - LINQ
 - Core Layer
+- Web API
+- Autofac
+- FluentValidation
+- AOP Support
+- Validation
 
 > In Progress.
 
