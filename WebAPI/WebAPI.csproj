@@ -11,5 +11,10 @@
     <ProjectReference Include="..\Entities\Entities.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Uploads\" />
+    <Folder Include="Uploads\CarImages\" />
+  </ItemGroup>
+
 
 </Project>

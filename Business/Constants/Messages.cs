@@ -35,7 +35,10 @@ namespace Business.Constants
         public static string RentalAddError = "Cannot be rented because the car is not received.";
         public static string RentalUpdateReturnError = "The car has already been received.";
         public static string AddRentalUpdateReturnDate = "Return date entered.";
-
-
+        public static string ImageLimitExceded = "Image Limit Exceded";
+        public static string ImageAdded = "Image added.";
+        public static string ImageUpdated = "Image updated.";
+        public static string ImageDeleted = "Image deleted";
+        public static string ImagesListed = "Images listed.";
     }
 }
