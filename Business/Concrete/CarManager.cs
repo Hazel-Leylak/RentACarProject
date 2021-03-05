@@ -21,6 +21,8 @@ namespace Business.Concrete
         {
             _carDal = carDal;
         }
+
+        [CacheAspect]
         public IDataResult<List<Car>> GetAll()
         {
             if(DateTime.Now.Hour == 3) // maintenance time
