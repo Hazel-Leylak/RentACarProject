@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Business.BusinessAspects.Autofac;
 using Business.Constants;
 using Core.Aspects.Autofac.Validation;
 using Core.Utilities.Business;
@@ -22,7 +23,8 @@ namespace Business.Concrete
         {
             _imageDal = imageDal;
         }
-        
+
+        [SecuredOperation("admin, car.add")]
         public IResult Add(IFormFile file, CarImage carImage)
         {
             IResult result = BusinessRules.Run(CheckIfImgLimitExceded(carImage.CarId));
