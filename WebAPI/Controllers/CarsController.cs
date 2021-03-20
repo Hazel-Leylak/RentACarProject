@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using Business.Abstract;
 using Entities.Concrete;
@@ -23,6 +24,8 @@ namespace WebAPI.Controllers
         [HttpGet("getall")]
         public IActionResult GetAll()
         {
+            Thread.Sleep(5000);
+
             var result = _carService.GetAll();
             if (result.Success)
             {
@@ -108,10 +111,10 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
-        [HttpPost("getcardetail")]
+        [HttpGet("getallcarsdetail")]
         public IActionResult GetCarDetail()
         {
-            var result = _carService.GetCarDetails();
+            var result = _carService.GetAllCarsDetails();
             if (result.Success)
             {
                 return Ok(result);

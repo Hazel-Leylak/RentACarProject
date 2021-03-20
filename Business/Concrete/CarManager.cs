@@ -88,7 +88,7 @@ namespace Business.Concrete
 
        
 
-        public IDataResult<List<CarDetailDto>> GetCarDetails()
+        public IDataResult<List<CarDetailDto>> GetAllCarsDetails()
         {
             if (DateTime.Now.Hour == 14) // maintenance time
             {

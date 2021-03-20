@@ -18,7 +18,7 @@ namespace WebAPI.Controllers
         {
             _rentalService = rentalService;
         }
-        [HttpGet("addrental")]
+        [HttpGet("add")]
         public IActionResult AddRental(Rental rental)
         {
             var result = _rentalService.Add(rental);
@@ -29,7 +29,7 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
-        [HttpGet("deleterental")]
+        [HttpGet("delete")]
         public IActionResult DeleteRental(Rental rental)
         {
             var result = _rentalService.Delete(rental);
@@ -40,7 +40,7 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
-        [HttpGet("getallrentals")]
+        [HttpGet("getall")]
         public IActionResult GetAllRentals()
         {
             var result = _rentalService.GetAll();
@@ -62,7 +62,7 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
-        [HttpGet("getrentalbydaterange")]
+        [HttpGet("getbydaterange")]
         public IActionResult GetByRentalByDateRange(DateTime from, DateTime to)
         {
             var result = _rentalService.GetByDateRange(from, to);
@@ -84,7 +84,7 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
-        [HttpGet("getrentaldetails")]
+        [HttpGet("getdetails")]
         public IActionResult GetRentalDetails()
         {
             var result = _rentalService.GetRentalDetails();
@@ -95,7 +95,7 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
-        [HttpGet("updaterental")]
+        [HttpGet("update")]
         public IActionResult UpdateRental(Rental rental)
         {
             var result = _rentalService.Update(rental);

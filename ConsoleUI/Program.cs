@@ -11,7 +11,7 @@ namespace ConsoleUI
     {
         static void Main(string[] args)
         {
-            //CarTest();
+            CarTest();
             //CategoryTest();
             //AddCar();
             //RentalManager rentalManager = new RentalManager(new EfRentalDal());
@@ -85,7 +85,7 @@ namespace ConsoleUI
         {
             CarManager carManager = new CarManager(new EfCarDal());
 
-            var result = carManager.GetCarDetails();
+            var result = carManager.GetAllCarsDetails();
 
             if (result.Success)
             {
