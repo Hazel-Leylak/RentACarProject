@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text;
 
 namespace Business.Concrete
@@ -24,7 +25,7 @@ namespace Business.Concrete
             _imageDal = imageDal;
         }
 
-        [SecuredOperation("admin, car.add")]
+        //[SecuredOperation("admin, car.add")]
         public IResult Add(IFormFile file, CarImage carImage)
         {
             IResult result = BusinessRules.Run(CheckIfImgLimitExceded(carImage.CarId));
@@ -33,7 +34,9 @@ namespace Business.Concrete
                 return result;
             }
             carImage.UploadDate = DateTime.Now;
-            carImage.ImagePath = FileOperation.Add(file, CreateGuidFilePath());
+            carImage.ImagePath = FileOperation.Add(file);
+            var data = carImage.ImagePath.Split('\\').LastOrDefault();
+            carImage.ImagePath = "/images/" + data;
             _imageDal.Add(carImage);
             return new SuccessResult(Messages.ImageAdded);
         }
@@ -58,7 +61,7 @@ namespace Business.Concrete
             }
             
             carImage.UploadDate = DateTime.Now;
-            carImage.ImagePath = FileOperation.Update(carImage.ImagePath, file, CreateGuidFilePath());
+            carImage.ImagePath = FileOperation.Update(carImage.ImagePath, file);
             _imageDal.Update(carImage);
             return new SuccessResult(Messages.ImageUpdated);
         }
@@ -88,19 +91,6 @@ namespace Business.Concrete
             return new SuccessResult();
         }
 
-        private string CreateGuidFilePath() 
-        {
-            string fileName = "default";
-            string path = Environment.CurrentDirectory + @"\Uploads\CarImages\";
-
-            if (!Directory.Exists(path))
-            {
-                Directory.CreateDirectory(path);
-            }
-
-            fileName = path + Guid.NewGuid().ToString() + "_" + DateTime.Now.Day + "_" + DateTime.Now.Month + "_" + DateTime.Now.Year;
-            
-            return fileName;
-        }
+        
     }
 }

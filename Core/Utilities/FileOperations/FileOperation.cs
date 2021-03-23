@@ -11,9 +11,27 @@ namespace Core.Utilities.FileOperations
     public class FileOperation
     {
 
-        public static string Add(IFormFile file, string path)
+        public static string CreateGuidFilePath(IFormFile file)
+        {
+            FileInfo fileInfo = new FileInfo(file.FileName);
+            string fileExtension = fileInfo.Extension;
+            string path = Environment.CurrentDirectory + @"\wwwroot\images";
+            
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+            }
+
+            string newPath = Guid.NewGuid().ToString() + "_" + DateTime.Now.Day + "_" + DateTime.Now.Month + "_" + DateTime.Now.Year + fileExtension;
+            //fileName = path + Guid.NewGuid().ToString() + "_" + DateTime.Now.Day + "_" + DateTime.Now.Month + "_" + DateTime.Now.Year;
+            string result = $@"{path}\{newPath}";
+            return result;
+        }
+
+        public static string Add(IFormFile file)
         {
             var sourcePath = Path.GetTempFileName();
+            string fileName = CreateGuidFilePath(file);
 
             if (file.Length > 0)
                 using (var fileStream = new FileStream(sourcePath, FileMode.Create))
@@ -22,8 +40,8 @@ namespace Core.Utilities.FileOperations
                     fileStream.Flush();
                 }
 
-            File.Move(sourcePath, path);
-            string fileName = path.Substring(path.LastIndexOf("\\") + 1);
+            File.Move(sourcePath, fileName);
+            //string fileName = path.Substring(path.LastIndexOf("\\") + 1);
             return fileName;
         }
 
@@ -42,8 +60,9 @@ namespace Core.Utilities.FileOperations
             return new SuccessResult();
         }
 
-        public static string Update(string oldPath, IFormFile file, string newPath)
+        public static string Update(string oldPath, IFormFile file)
         {
+            string newPath = CreateGuidFilePath(file);
             if (oldPath.Length > 0)
             {
                 using(var fileStream = new FileStream(newPath, FileMode.Create))
@@ -52,10 +71,10 @@ namespace Core.Utilities.FileOperations
                     fileStream.Flush();
                 }
             }
-            string path = Environment.CurrentDirectory + @"\Uploads\CarImages\";
-            File.Delete(path + oldPath);
-            string fileName = newPath.Substring(newPath.LastIndexOf("\\") + 1);
-            return fileName;
+            //string path = Environment.CurrentDirectory + @"\wwwroot\images\";
+            File.Delete(oldPath);
+            //string fileName = newPath.Substring(newPath.LastIndexOf("\\") + 1);
+            return newPath;
         }
     }
 }

@@ -86,11 +86,14 @@ namespace Business.Concrete
             return new SuccessDataResult<Car>(_carDal.Get(c=>c.CarId == carId));
         }
 
-       
-
-        public IDataResult<List<CarDetailDto>> GetAllCarsDetails()
+        public object GetAllCarsDetails()
         {
-            if (DateTime.Now.Hour == 14) // maintenance time
+            throw new NotImplementedException();
+        }
+
+        public IDataResult<List<CarDetailDto>> GetCarDetails()
+        {
+            if (DateTime.Now.Hour == 3) // maintenance time
             {
                 return new ErrorDataResult<List<CarDetailDto>>(Messages.MaintenanceTime);
             }
@@ -110,6 +113,22 @@ namespace Business.Concrete
             car.CarName = "Success car";
             Update(car);
             return new SuccessResult();
+        }
+
+        public IDataResult<List<CarDetailDto>> GetCarDetailsByBrand(int brandId)
+        {
+            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails(b=>b.BrandId == brandId), Messages.CarsListed);
+            
+        }
+
+        public IDataResult<List<CarDetailDto>> GetCarDetailsById(int carId)
+        {
+            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails(c => c.CarId == carId));
+        }
+
+        public IDataResult<List<CarDetailDto>> GetCarDetailsByColor(int colorId)
+        {
+            return new SuccessDataResult<List<CarDetailDto>>(_carDal.GetCarDetails(c => c.ColorId == colorId));
         }
     }
 }
