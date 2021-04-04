@@ -36,6 +36,7 @@ namespace Business.Constants
         public static string UsersListed = "Users listed.";
         public static string RentalAddError = "Cannot be rented because the car is not received.";
         public static string RentalUpdateReturnError = "The car has already been received.";
+        public static string RentalStatusTrue = "This car can rent.";
         public static string AddRentalUpdateReturnDate = "Return date entered.";
         public static string ImageLimitExceded = "Image Limit Exceded";
         public static string ImageAdded = "Image added.";
@@ -49,5 +50,10 @@ namespace Business.Constants
         public static string SuccessfulLogin="Successful Login.";
         public static string UserAlreadyExists ="User already exist.";
         public static string AccessTokenCreated="Access token created.";
+        public static string CardAdded = "Card added.";
+        public static string CardUpdated = "Card updated.";
+        public static string CardsListed = "Cards listed.";
+        public static string CardDeleted = "Card deleted.";
+        public static string PaymentSuccess = "Payment successful.";
     }
 }

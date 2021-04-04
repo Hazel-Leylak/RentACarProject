@@ -20,7 +20,7 @@ namespace Business.Concrete
             _rentalDal = rentalDal;
         }
 
-        [SecuredOperation("admin, customer.service")]
+        //[SecuredOperation("admin, customer.service")]
         public IResult Add(Rental rental)
         {
             var result = CheckReturn(rental.CarId);
@@ -34,13 +34,13 @@ namespace Business.Concrete
 
         public IResult CheckReturn(int carId)
         {
-            var result = _rentalDal.GetAll(r => r.CarId == carId && r.ReturnDate == DateTime.MinValue);
+            var result = _rentalDal.GetAll(r => r.CarId == carId && (r.ReturnDate == DateTime.MinValue || r.ReturnDate == null));
             if (result.Count > 0)
             {
                 
                 return new ErrorResult(Messages.RentalAddError);
             }
-            return new SuccessResult(Messages.RentalAdded);
+            return new SuccessResult(Messages.RentalStatusTrue);
         }
 
         [SecuredOperation("admin, customer.service")]

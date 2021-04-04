@@ -18,7 +18,7 @@ namespace WebAPI.Controllers
         {
             _rentalService = rentalService;
         }
-        [HttpGet("add")]
+        [HttpPost("add")]
         public IActionResult AddRental(Rental rental)
         {
             var result = _rentalService.Add(rental);
@@ -116,5 +116,17 @@ namespace WebAPI.Controllers
             }
             return BadRequest(result);
         }
+
+        [HttpGet("checkstatus")]
+        public IActionResult CheckRentalStatus(int carId)
+        {
+            var result = _rentalService.CheckReturn(carId);
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+
     }
 }
