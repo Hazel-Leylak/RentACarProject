@@ -73,6 +73,11 @@ namespace Business.Concrete
 
         public IDataResult<List<CarImage>> GetAllImgsOfCarById(int carId)
         {
+            IDataResult<List<CarImage>> result = (IDataResult<List<CarImage>>)BusinessRules.Run(IsImgExist(carId));
+            if(result != null)
+            {
+                return result;
+            }
             return new SuccessDataResult<List<CarImage>>(_imageDal.GetAll(c=>c.CarId == carId), Messages.ImagesListed);
         }
 
@@ -89,6 +94,19 @@ namespace Business.Concrete
                 return new ErrorResult(Messages.ImageLimitExceded);
             }
             return new SuccessResult();
+        }
+
+        private IDataResult<List<CarImage>> IsImgExist(int carId)
+        {
+            string path = @"\images\defaultCar.jpg";
+            var result = _imageDal.GetAll(c => c.CarId == carId).Any();
+            if (!result)
+            {
+                return new SuccessDataResult<List<CarImage>>(new List<CarImage>
+                { new CarImage {ImagePath = path} }
+                );
+            }
+            return new SuccessDataResult<List<CarImage>>();
         }
 
         
