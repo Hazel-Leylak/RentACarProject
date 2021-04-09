@@ -18,7 +18,7 @@ namespace Business.Concrete
             _colorDal = colorDal;
         }
 
-        //[SecuredOperation("admin, car.add")]
+        [SecuredOperation("admin, car.add")]
         public IResult Add(Color carColor)
         {
             _colorDal.Add(carColor);
