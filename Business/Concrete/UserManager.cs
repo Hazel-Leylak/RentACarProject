@@ -1,6 +1,7 @@
 ﻿using Business.Abstract;
 using Business.Constants;
 using Core.Entities.Concrete;
+using Core.Utilities.Business;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
@@ -19,6 +20,11 @@ namespace Business.Concrete
         }
         public IResult Add(User user)
         {
+            IResult result = BusinessRules.Run(CheckSameMail(user.Email));
+            if(result != null)
+            {
+                return result;
+            }
             _userDal.Add(user);
             return new SuccessResult(Messages.UserAdded);
         }
@@ -41,6 +47,9 @@ namespace Business.Concrete
 
         public IResult Update(User user)
         {
+            user.Status = true;
+            user.PasswordHash = _userDal.Get(u => u.UserId == user.UserId).PasswordHash;
+            user.PasswordSalt = _userDal.Get(u => u.UserId == user.UserId).PasswordSalt;
             _userDal.Update(user);
             return new SuccessResult(Messages.UserUpdated);
         }
@@ -53,6 +62,21 @@ namespace Business.Concrete
         public User GetByMail(string email)
         {
             return _userDal.Get(u => u.Email == email);
+        }
+
+        public IDataResult<User> GetUserDetailByMail(string email)
+        {
+            return new SuccessDataResult<User>(_userDal.Get(m => m.Email == email));
+        }
+
+        private IResult CheckSameMail(string email)
+        {
+            var result = _userDal.GetAll(e => e.Email == email).Count;
+            if (result >= 1)
+            {
+                return new ErrorResult(Messages.SameEmail);
+            }
+            return new SuccessResult();
         }
     }
 }

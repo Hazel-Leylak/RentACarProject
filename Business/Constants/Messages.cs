@@ -55,5 +55,6 @@ namespace Business.Constants
         public static string CardsListed = "Cards listed.";
         public static string CardDeleted = "Card deleted.";
         public static string PaymentSuccess = "Payment successful.";
+        public static string SameEmail = "There is a registered account with the same e-mail address.";
     }
 }

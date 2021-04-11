@@ -30,7 +30,8 @@ namespace DataAccess.Concrete.EntityFramework
                                  ColorName = color.ColorName,
                                  ColorId = color.ColorId,
                                  modelYear = car.ModelYear,
-                                 Description = car.Description                                 
+                                 Description = car.Description,
+                                 MinFindeksScore = car.MinFindeksScore
                              };
 
                 if (filter == null)

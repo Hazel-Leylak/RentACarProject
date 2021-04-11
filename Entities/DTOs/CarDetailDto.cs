@@ -16,6 +16,7 @@ namespace Entities.DTOs
         public int ColorId { get; set; }
         public string modelYear { get; set; }
         public string Description { get; set; }
+        public short MinFindeksScore { get; set; }
 
     }
 }

@@ -20,7 +20,7 @@ namespace WebAPI.Controllers
             _userService = userService;
         }
 
-        [HttpGet("adduser")]
+        [HttpPost("add")]
         public IActionResult AddUser(User user)
         {
             var result = _userService.Add(user);
@@ -31,7 +31,7 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
-        [HttpGet("delteuser")]
+        [HttpPost("delete")]
         public IActionResult DeleteUser(User user)
         {
             var result = _userService.Delete(user);
@@ -64,11 +64,22 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
-        [HttpGet("updateuser")]
+        [HttpPost("update")]
         public IActionResult UpdateUser(User user)
         {
             var result = _userService.Update(user);
             if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
+        }
+
+        [HttpGet("getbymail")]
+        public IActionResult GetByMail(string email)
+        {
+            var result = _userService.GetUserDetailByMail(email);
+            if (result != null)
             {
                 return Ok(result);
             }
