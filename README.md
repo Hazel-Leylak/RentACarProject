@@ -1,6 +1,6 @@
 # Rent A Car Project
 
-Front-end: https://github.com/Hazel-Leylak/rentacar-frontend
+> Go to Front-End Project -> [Angular Front-End](https://github.com/Hazel-Leylak/rentacar-frontend)
 
 ## Introduction
 
