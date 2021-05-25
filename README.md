@@ -54,7 +54,12 @@ protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
             optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=RentACar;Trusted_Connection=true");
         }
 ```
-
+3. (Optional) You can change Token Options from: WebAPI > appsettings.json
+4. (Front-End) Url Paths should be changed with yours.
+   * Download the missing packages:
+    `npm install`
+   * Start the Angular project:
+    `ng serve --open`
 
 
 
