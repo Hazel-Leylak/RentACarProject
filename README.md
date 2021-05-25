@@ -40,8 +40,8 @@ and much many more subject.
     * Transforming Data Using Pipes
     * HttpClient Interceptor
     * Guards
-> Go to Front-End Project ->, [Link](https://github.com/Hazel-Leylak/rentacar-frontend)。
+> Go to Front-End Project ->, [Angular Front-End](https://github.com/Hazel-Leylak/rentacar-frontend)
 
-> In Progress.
+
 
 
