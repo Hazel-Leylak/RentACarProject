@@ -40,7 +40,20 @@ and much many more subject.
     * Transforming Data Using Pipes
     * HttpClient Interceptor
     * Guards
-> Go to Front-End Project ->, [Angular Front-End](https://github.com/Hazel-Leylak/rentacar-frontend)
+> Go to Front-End Project -> [Angular Front-End](https://github.com/Hazel-Leylak/rentacar-frontend)
+
+----------------------------
+## Setup
+
+1. Create SQL Tables.
+2. Configure connection string: DataAccess > Concrete > EntityFrameWork > RentACarContext.cs 
+
+```csharp
+protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlServer(@"Server=(localdb)\mssqllocaldb;Database=RentACar;Trusted_Connection=true");
+        }
+```
 
 
 
