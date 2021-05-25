@@ -99,6 +99,8 @@ protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 + The date on which the picture is added will be assigned by the system.
 
 #### Day 7: 
++ Login & Register
+   - Passwordh Hashing & Password Salt
 + JWT Integration
 
 #### Day 8:
