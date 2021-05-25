@@ -61,5 +61,11 @@ protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
    * Start the Angular project:
     `ng serve --open`
 
-
+-----------------------------
+## Daily Challenges in this project: 
+#### Day 1:
++ Write the Generic IEntityRepository infrastructure.
++ When a new car is added to the system, run the following rules.
+   - The car name must be at least 2 characters
+   - The car's daily price must be greater than 0
 
