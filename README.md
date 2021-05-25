@@ -45,7 +45,10 @@ and much many more subject.
 ----------------------------
 ## Setup
 
-1. Create SQL Tables.
+1. Create SQL Tables. 
+
+![Untitled](https://user-images.githubusercontent.com/47564151/119494327-dce2d100-bd69-11eb-9a40-f5865b0aa052.png)
+
 2. Configure connection string: DataAccess > Concrete > EntityFrameWork > RentACarContext.cs 
 
 ```csharp
