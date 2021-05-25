@@ -16,19 +16,23 @@ and much many more subject.
 -------------------------------
 
 ## Technologies & Structures
+
 + Back-End
-* .NET
-* C#
-* Restful Web Api .Net Core
-* EntityFramework Core
-* MsSQL
-* FluentValidation
-* Autofac
-* Layered Architecture
-* JSON Web Token
-* Asynchronous structure
-* Validate, Cache, Authorize Aspect
-* Interceptor, Aspects
+    * .NET
+    * C#
+    * Restful Web Api .Net Core
+    * EntityFramework Core
+    * MsSQL
+    * Fluent Validation
+    * Autofac
+    * Layered Architecture
+    * JSON Web Token
+    * Asynchronous structure
+    * Validate, Cache, Authorize Aspect
+    * Interceptor, Aspects
+    * Generic Repository Design
+    * Aspect Oriented Programming
+    * Generic Constraint
 
 + Front-End
     * Angular 11
@@ -36,22 +40,7 @@ and much many more subject.
     * Transforming Data Using Pipes
     * HttpClient Interceptor
     * Guards
-
-
-This project includes:
-- Object Oriented Programming
-- SOLID Principles
-- Design Patterns
-- Generic Repository Design
-- Generic Constraint
-- Entity Framework
-- LINQ
-- Core Layer
-- Web API
-- Autofac
-- FluentValidation
-- AOP Support
-- Validation
+> Go to Front-End Project ->, [Link](https://github.com/Hazel-Leylak/rentacar-frontend)。
 
 > In Progress.
 
