@@ -17,18 +17,18 @@ and much many more subject.
 
 ## Technologies & Structures
 + Back-End
-- .NET
-- C#
-- Restful Web Api .Net Core
-- EntityFramework Core
-- MsSQL
-- FluentValidation
-- Autofac
-- Layered Architecture
-- JSON Web Token
-- Asynchronous structure
-- Validate, Cache, Authorize Aspect
-- Interceptor, Aspects
+* .NET
+* C#
+* Restful Web Api .Net Core
+* EntityFramework Core
+* MsSQL
+* FluentValidation
+* Autofac
+* Layered Architecture
+* JSON Web Token
+* Asynchronous structure
+* Validate, Cache, Authorize Aspect
+* Interceptor, Aspects
 
 + Front-End
     * Angular 11
