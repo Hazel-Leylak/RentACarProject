@@ -24,6 +24,7 @@ and much many more subject.
     * EntityFramework Core
     * MsSQL
     * Fluent Validation
+    * Dependency Injection
     * Autofac
     * Layered Architecture
     * JSON Web Token
