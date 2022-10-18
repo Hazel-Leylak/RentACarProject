@@ -20,7 +20,7 @@ and much many more subject.
 + Back-End
     * .NET
     * C#
-    * Restful Web Api .Net Core
+    * .Net Core Web Api
     * EntityFramework Core
     * MsSQL
     * Fluent Validation
